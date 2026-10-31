@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101010">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">PHOTO COLLECTION</p>
+    <h1>Photo Gallery</h1>
+    <p class="intro">お気に入りの写真を、ここから保存できます。</p>
+  </header>
+
+  <main class="gallery-wrap">
+    <section class="gallery" id="gallery" aria-label="画像ギャラリー">
+      <!-- script.js の images 配列に登録した画像がここに表示されます -->
+    </section>
+    <p class="notice" id="notice" role="status" aria-live="polite"></p>
+    <div class="all-download-wrap">
+      <button class="button button-primary" id="download-all" type="button">
+        <span aria-hidden="true">↓</span> すべてダウンロード（ZIP）
+      </button>
+    </div>
+  </main>
+
+  <footer class="site-footer">PHOTO COLLECTION</footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="画像プレビュー">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="閉じる">×</button>
+    <img id="lightbox-image" src="" alt="">
+    <p id="lightbox-caption"></p>
+  </dialog>
+
+  <!-- ZIP一括ダウンロード用ライブラリ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+         
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>

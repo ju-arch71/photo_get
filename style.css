@@ -1,0 +1,212 @@
+* { box-sizing: border-box; }
+
+:root {
+  color-scheme: dark;
+  --bg: #101010;
+  --panel: #181818;
+  --line: #303030;
+  --text: #f3f3f3;
+  --muted: #999;
+  --accent: #e8e8e8;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.site-header {
+  width: min(100% - 40px, 980px);
+  margin: 0 auto;
+  padding: 68px 0 42px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 13px;
+  color: #aaa;
+  font-size: 10px;
+  letter-spacing: .28em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 6vw, 48px);
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+.intro {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.gallery-wrap {
+  width: min(100% - 40px, 980px);
+  margin: 0 auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.photo-card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.photo-frame {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #222;
+  cursor: zoom-in;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease, opacity .2s ease;
+}
+
+.photo-frame:hover img { transform: scale(1.035); }
+
+.photo-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+}
+
+.photo-title {
+  min-width: 0;
+  margin: 0;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid #555;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+
+.button:hover {
+  background: #f0f0f0;
+  color: #111;
+  border-color: #f0f0f0;
+}
+
+.button:disabled { opacity: .55; cursor: wait; }
+
+.button-primary {
+  min-height: 46px;
+  padding: 0 22px;
+  border-color: #ddd;
+  background: #eee;
+  color: #111;
+}
+
+.button-primary:hover {
+  border-color: #fff;
+  background: #fff;
+}
+
+.all-download-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 38px 0 22px;
+}
+
+.notice {
+  min-height: 20px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.site-footer {
+  padding: 38px 20px 28px;
+  color: #666;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: .25em;
+}
+
+.lightbox {
+  width: min(94vw, 1100px);
+  max-width: none;
+  max-height: 92vh;
+  padding: 48px 18px 18px;
+  border: 1px solid #444;
+  background: #111;
+  color: var(--text);
+}
+
+.lightbox::backdrop { background: rgb(0 0 0 / 88%); }
+
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 75vh;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.lightbox p {
+  margin: 14px 0 0;
+  color: #bbb;
+  text-align: center;
+  font-size: 12px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  .site-header { padding: 48px 0 30px; }
+  .gallery { grid-template-columns: 1fr; gap: 16px; }
+  .gallery-wrap { width: min(100% - 28px, 520px); }
+  .photo-info { padding: 12px; }
+  .all-download-wrap { padding-top: 28px; }
+}
